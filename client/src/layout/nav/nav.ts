@@ -26,3 +26,4 @@ export class Nav {
     this.accountService.logout();
   }
 }
+
