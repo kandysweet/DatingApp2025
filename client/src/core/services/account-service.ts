@@ -13,8 +13,8 @@ export class AccountService {
   currentUser = signal<User | null>(null);
   baseUrl = "https://localhost:5001/api/";
 
-  register(creds: RegisterCreds){
-    return this.http.post<User>(this.baseUrl+"account/register", creds).pipe(
+  register(creds: RegisterCreds): Observable<User> {
+    return this.http.post<User>(this.baseUrl + "account/login", creds).pipe(
       tap(user => {
         if (user) {
           this.setCurrentUser(user);
