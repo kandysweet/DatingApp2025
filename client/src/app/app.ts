@@ -4,7 +4,7 @@ import { lastValueFrom } from 'rxjs';
 import { Nav } from "../layout/nav/nav";
 import { AccountService } from '../core/services/account-service';
 import { User } from '../types/user';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from "@angular/router";
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -15,10 +15,21 @@ import { NgClass } from '@angular/common';
 })
 export class App implements OnInit {
   private accountService = inject(AccountService);
-  protected router = inject(Router);
   private http = inject(HttpClient);
-  protected readonly title = signal('Dating App');
+  protected router = inject(Router);
+  protected readonly title = signal("Dating App");
+
+  // Se cargan los elementos cada vez que se refresca la página
   protected members = signal<User[]>([]);
+
+  // Otra forma de llamarlo desde el html
+  // quedaria de la siguiente forma:
+  // <h1>{{title2}}</h1>
+  // protected title2 = "Hola";
+
+  // Constructor tradicional que se puede susituir
+  // con el de inject
+  // constructor(private http2: HttpClient) { }
 
   async ngOnInit(): Promise<void> {
     this.setCurrentUser();
@@ -40,4 +51,6 @@ export class App implements OnInit {
       throw error;
     }
   }
+
 }
+
