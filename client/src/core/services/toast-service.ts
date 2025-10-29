@@ -33,11 +33,27 @@ export class ToastService {
       toastContainer.removeChild(toast);
     });
     toastContainer.append(toast);
-    
+
     setTimeout(() => {
       if (toastContainer.contains((toast))) {
         toastContainer.removeChild(toast);
       }
     }, duration);
+  }
+
+  success(message: string, duration?: number): void {
+    this.createToastElement(message, "alert-success", duration);
+  }
+
+  error(message: string, duration?: number): void {
+    this.createToastElement(message, "alert-error", duration);
+  }
+
+  warning(message: string, duration?: number): void {
+    this.createToastElement(message, "alert-warning", duration);
+  }
+
+  info(message: string, duration?: number): void {
+    this.createToastElement(message, "alert-info", duration);
   }
 }
