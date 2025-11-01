@@ -1,9 +1,9 @@
-using API.Data;
 using API.Entities;
 using API.Interfaces;
+using API.Mappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace API.Controllers;
 
@@ -14,7 +14,6 @@ public class MembersController(IMembersRepository membersRepository) : BaseApiCo
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Member>>> GetMembers()
     {
-
         return Ok(await membersRepository.GetMembersAsync());
     }
 
@@ -26,11 +25,11 @@ public class MembersController(IMembersRepository membersRepository) : BaseApiCo
 
         if (member == null) return NotFound();
 
-        return member;
+        return member.ToResponse();
     }
 
     [HttpGet("{id}/photos")]
-    public async Task<ActionResult<IReadOnlyList<Photo>>> GetPhoto(string id)
+    public async Task<ActionResult<IReadOnlyList<Photo>>> GetPhotos(string id)
     {
         return Ok(await membersRepository.GetPhotosAsync(id));
     }
