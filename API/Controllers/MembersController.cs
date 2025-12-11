@@ -18,6 +18,7 @@ public class MembersController(AppDbContext context) : ControllerBase
         return members;
     }
 
+
     [HttpGet("{id}")] // https://localhost:5001/api/members/bob-id
     public async Task<ActionResult<AppUser>> GetMember(string id)
     {
