@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { Member } from '../../../types/member';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-member-detail',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RouterLink, RouterLinkActive],
   templateUrl: './member-detail.html',
   styleUrl: './member-detail.css'
 })
