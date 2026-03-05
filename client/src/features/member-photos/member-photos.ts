@@ -5,10 +5,13 @@ import { Member, Photo } from '../../types/member';
 import { ImageUpload } from "../../shared/image-upload/image-upload";
 import { AccountService } from '../../core/services/account-service';
 import { User } from '../../types/user';
+import { IconButton } from "../../shared/icon-button/icon-button";
 
 @Component({
   selector: 'app-member-photos',
-@@ -12,37 +14,52 @@
+  imports: [ImageUpload, IconButton],
+  templateUrl: './member-photos.html',
+  styleUrl: './member-photos.css'
 })
 export class MemberPhotos implements OnInit {
   private route = inject(ActivatedRoute);
