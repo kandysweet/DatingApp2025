@@ -38,13 +38,7 @@ public class MembersController(IMembersRepository membersRepository) : BaseApiCo
     public async Task<ActionResult> UpdateMember(MemberUpdateRequest request)
     {
         var memberId = User.GetMemberId();
-        var member = await membersRepository.GetMemberForUpdate(memberId);
-
-
-
-
-
-
+        var member = await membersRepository.GetMemberForUpdateAsync(memberId);
 
         if (member == null)
         {
@@ -52,7 +46,6 @@ public class MembersController(IMembersRepository membersRepository) : BaseApiCo
         }
 
         member.DisplayName = request.DisplayName ?? member.DisplayName;
-
         member.Description = request.Description ?? member.Description;
         member.City = request.City ?? member.City;
         member.Country = request.Country ?? member.Country;
