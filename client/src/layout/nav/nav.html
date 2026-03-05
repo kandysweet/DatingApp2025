@@ -19,8 +19,13 @@
       }
       <a routerLink="/errors" routerLinkActive="text-accent">Errors</a>
     </nav>
-    <div class="flex align-middle ml-auto gap-3">
 
+
+    @if (busyService.busyRequestCount() > 0) {
+      <span class="loading loading-spinner text-accent"></span>
+    }
+
+    <div class="flex align-middle ml-auto gap-3">
       <div class="dropdown mr-5 dropdown-end">
         <button tabindex="1" class="flex flex-col justify-center align-middle
           text-white cursor-pointer uppercase text-xs">
@@ -34,7 +39,15 @@
           @for (theme of themes; track $index) {
             <li (click)="handleSelectedTheme(theme)">
               <a>{{theme}}</a>
-@@ -46,17 +46,17 @@
+            </li>
+          }
+        </ul>
+      </div>
+
+      @if (accountService.currentUser(); as user) {
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="flex items-center text-white text-xl gap-3 cursor-pointer">
+            <img [src]="user?.imageUrl || './user.jpg'"  alt="user avatar" class="w-8 h-8 rounded-full">
             <span>{{user.displayName}}</span>
           </div>
           <ul tabindex="0" class="dropdown-content dropdown-end menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
@@ -49,6 +62,7 @@
           <button type="submit" class="btn">Login</button>
         </form>
       }
+
     </div>
   </div>
 </header>
