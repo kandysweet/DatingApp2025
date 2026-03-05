@@ -6,7 +6,8 @@ import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-@@ -11,20 +11,25 @@
+})
+export class MembersService {
   private http = inject(HttpClient);
   private baseUrl = environment.apiUrl;
   editMode = signal(false);
@@ -30,5 +31,11 @@ import { Observable, tap } from 'rxjs';
 
   updateMember(member: EditableMember) {
     return this.http.put(this.baseUrl + "members", member);
+  }
+
+  uploadPhoto(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<Photo>(this.baseUrl + 'members/photo', formData);
   }
 }
