@@ -1,4 +1,3 @@
-
 import { Component, input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,6 +10,7 @@ import { ControlValueAccessor, FormControl, NgControl, ReactiveFormsModule } fro
 export class TextInput implements ControlValueAccessor {
   label = input<string>('');
   type = input<string>('text');
+  maxDate = input<string>('');
 
   constructor(public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
