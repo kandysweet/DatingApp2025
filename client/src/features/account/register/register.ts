@@ -3,10 +3,11 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validatio
 import { AccountService } from '../../../core/services/account-service';
 import { RegisterCreds } from '../../../types/user';
 import { JsonPipe } from '@angular/common';
+import { TextInput } from "../../../shared/text-input/text-input";
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule, JsonPipe, TextInput],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
@@ -52,16 +53,3 @@ export class Register implements OnInit {
     console.group("REGISTER");
     console.log(this.registerForm.value);
     console.groupEnd();
-    // this.accountService.register(this.creds).subscribe({
-    //   next: response => {
-    //     console.log(response);
-    //     this.cancel();
-    //   },
-    //   error: error => console.log(error)
-    // });
-  }
-
-  cancel(): void {
-    this.cancelRegister.emit(false);
-  }
-}
