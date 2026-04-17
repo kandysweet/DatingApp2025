@@ -1,11 +1,11 @@
 meta {
-  name: Get Members No QS
+  name: Set Main Photo
   type: http
-  seq: 2
+  seq: 5
 }
 
-get {
-  url: {{baseUrl}}/api/members
+put {
+  url: {{baseUrl}}/api/members/photo/12
   body: none
   auth: inherit
 }
@@ -16,4 +16,5 @@ headers {
 
 settings {
   encodeUrl: true
+
 }

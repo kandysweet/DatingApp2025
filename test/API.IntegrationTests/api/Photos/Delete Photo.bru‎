@@ -1,5 +1,4 @@
-meta {
-  name: Login as arenita and save token to env
+name: Login as arenita and save token to env
   type: http
   seq: 1
 }
@@ -20,16 +19,13 @@ body:json {
 tests {
   test("Should be able to login", function() {
     expect(res.getStatus()).to.equal(200);
-
-
-
   });
 
   const data = res.body;
   bru.setVar('token', data.token);
-
 }
 
 settings {
   encodeUrl: true
+
 }

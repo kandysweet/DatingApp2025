@@ -20,16 +20,13 @@ body:json {
 tests {
   test("Should be able to login", function() {
     expect(res.getStatus()).to.equal(200);
-
-
-
   });
 
   const data = res.body;
   bru.setVar('token', data.token);
-
 }
 
 settings {
   encodeUrl: true
+
 }

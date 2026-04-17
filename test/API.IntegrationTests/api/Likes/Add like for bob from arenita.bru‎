@@ -1,17 +1,21 @@
 meta {
-  name: Get Members No QS
+  name: Add like for bob from arenita
   type: http
   seq: 2
 }
 
-get {
-  url: {{baseUrl}}/api/members
+post {
+  url: {{baseUrl}}/api/likes/calamardo-id
   body: none
   auth: inherit
 }
 
 headers {
   Authorization: Bearer {{token}}
+}
+
+body:json {
+  {}
 }
 
 settings {

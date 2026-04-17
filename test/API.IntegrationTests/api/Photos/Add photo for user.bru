@@ -1,12 +1,12 @@
 meta {
-  name: Get Members No QS
+  name: Add photo for user
   type: http
   seq: 2
 }
 
-get {
-  url: {{baseUrl}}/api/members
-  body: none
+post {
+  url: {{baseUrl}}/api/members/photo
+  body: multipartForm
   auth: inherit
 }
 
@@ -14,6 +14,11 @@ headers {
   Authorization: Bearer {{token}}
 }
 
+body:multipart-form {
+  File: 
+}
+
 settings {
   encodeUrl: true
+
 }

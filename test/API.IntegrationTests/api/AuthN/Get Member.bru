@@ -1,13 +1,13 @@
 meta {
-  name: Get Members No QS
+  name: Get Member
   type: http
-  seq: 2
+  seq: 6
 }
 
 get {
-  url: {{baseUrl}}/api/members
+  url: {{baseUrl}}/api/members/arenita-id
   body: none
-  auth: inherit
+  auth: none
 }
 
 headers {
@@ -16,4 +16,5 @@ headers {
 
 settings {
   encodeUrl: true
+
 }

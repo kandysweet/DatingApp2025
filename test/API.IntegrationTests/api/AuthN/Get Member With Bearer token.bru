@@ -1,11 +1,11 @@
 meta {
-  name: Get Members No QS
+  name: Get Member With Bearer token
   type: http
-  seq: 2
+  seq: 7
 }
 
 get {
-  url: {{baseUrl}}/api/members
+  url: {{baseUrl}}/api/members/arenita-id
   body: none
   auth: inherit
 }
@@ -16,4 +16,5 @@ headers {
 
 settings {
   encodeUrl: true
+
 }
