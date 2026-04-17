@@ -17,6 +17,7 @@ public class MembersController(IMembersRepository membersRepository,
     
     public async Task<ActionResult<IReadOnlyList<Member>>> GetMembers([FromQuery] MemberRequest request)
     {
+        request.CurrentMemberId = User.GetMemberId();
         return Ok(await membersRepository.GetMembersAsync(request));
     }
 
