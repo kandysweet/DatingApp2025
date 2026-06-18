@@ -65,6 +65,7 @@ public class AccountController(UserManager<AppUser> userManager, ITokenService t
 
             return ValidationProblem();
         }
+         await userManager.AddToRoleAsync(user, "Member");
 
         return await user.ToDto(tokenService);
     }
